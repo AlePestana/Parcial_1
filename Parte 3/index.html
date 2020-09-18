@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-<link rel="stylesheet" type ="text/css" href="style.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
+    <script>
+      let nombres = [
+        "Jorge",
+        "Isabel",
+        "Juan",
+        "Pedro",
+        "Karina",
+        "Jose",
+        "Arturo",
+        "Rogelio",
+        "Bertha",
+      ];
 
-<script>
+      // ************** PARTE 1    **************
 
-let nombres  = ['Jorge','Isabel','Juan','Pedro','Karina','Jose','Arturo','Rogelio','Bertha'];
-
-
-
-// ************** PARTE 1    **************
-
-/**
+      /**
 
 Crea una funcion llamada: challenge1  que realice lo siguiente: 
 
@@ -29,30 +35,45 @@ Crea una funcion llamada: challenge1  que realice lo siguiente:
 
 **/
 
-// CREA TU FUNCION challenge1 aqui 
+      // CREA TU FUNCION challenge1 aqui
 
+      function challenge1() {
+        const buttons = prompt("¿Cuantos botones necesitas?");
 
+        const targetDiv = document.getElementById("dummy");
 
-// ************** PARTE 2    **************
+        for (let i = 0; i < buttons; i++) {
+          const nameButton = document.createElement("button");
+          nameButton.textContent = nombres[i];
+          targetDiv.appendChild(nameButton);
+        }
+      }
 
-/** 
+      // ************** PARTE 2    **************
+
+      /** 
 Crea una funcion llamada: challenge2 que utilizando un FOR convierta todos los nombres a mayusula y los escriba en la consola
 
 **/
 
-// CREA TU FUNCION challenge2 2 aquí.
+      // CREA TU FUNCION challenge2 2 aquí.
 
+      function challenge2() {
+        for (let i = 0; i < nombres.length; i++) {
+          console.log(nombres[i].toUpperCase());
+        }
+      }
 
+      // ************** PARTE 3    **************
 
-// ************** PARTE 3    **************
-
-/**
+      /**
 
 A) Escribe un constructor que te permita generar objetos de tipo "Dog" que reciba 3 parametros
 
 1) Nombre
 2) Color
 3) Raza
+
 
 
 B) Utilizando el constructor crea 3 objectos con diferentes valores y escribe en consola cada objeto.
@@ -68,27 +89,39 @@ Invoca la función para validar su funcionalidad.
 
 */
 
+      function challenge3() {
+        function Dog(name, color, race) {
+          this.name = name;
+          this.color = color;
+          this.race = race;
+          this.printInfo = printInfo;
+        }
 
+        const dog1 = new Dog("Peter", "yellow", "golden retriever");
+        const dog2 = new Dog("Nala", "white", "poodle");
+        const dog3 = new Dog("Mulan", "brown", "pitbull");
 
+        console.log(dog1);
+        console.log(dog2);
+        console.log(dog3);
 
+        function printInfo() {
+          const result = `Nombre: ${this.name}, De color: ${this.color}, Raza: ${this.race}`;
+          console.log(result);
+        }
 
-</script>
+        dog1.printInfo();
+        dog2.printInfo();
+        dog3.printInfo();
+      }
+    </script>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <button onclick="challenge1()">Challenge 1</button>
     <button onclick="challenge2()">Challenge 2</button>
     <button onclick="challenge3()">Challenge 2</button>
 
-  
-<div id = "dummy">
-
-</div>
- 
-
-
-</body>
-
+    <div id="dummy"></div>
+  </body>
 </html>
