@@ -51,8 +51,10 @@ li {
   Screen = B/w 600px to 990px*/
 @media (min-width: 600px) and (max-width: 990px) {
   .article {
+    flex-direction: column;
   }
   header {
+    display: none;
   }
 }
 
@@ -60,11 +62,18 @@ li {
 @media (max-width: 599px) {
   header,
   .content {
+    display: none;
   }
 
   .nav {
+    flex-direction: column;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-right: 15px;
   }
 
   .nav > li {
+    margin-top: 120px;
+    width: 100%;
   }
 }
